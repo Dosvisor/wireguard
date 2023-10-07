@@ -25,7 +25,7 @@ services:
   wireguard_r:
     image: lscr.io/linuxserver/wireguard:latest
     privileged: true
-    container_name: wireguard_m
+    container_name: wireguard_r
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
