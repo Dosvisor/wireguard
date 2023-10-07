@@ -14,7 +14,7 @@ services:
       - LOG_CONFS=true
     volumes:
 #      - C://Users//username//PycharmProjects//wireguard//config:/config #windows
-      - /home/username/wireguard/config:/config #linix
+      - /home/noadmin/projects/wireguard/config:/config #linix
     ports:
       - 51820:51820/udp
     sysctls:
