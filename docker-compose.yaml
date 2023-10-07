@@ -1,0 +1,23 @@
+version: "3"
+services:
+  wireguard:
+    image: lscr.io/linuxserver/wireguard:latest
+    privileged: true
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - LOG_CONFS=true
+    volumes:
+      - C://Users//noadmin//PycharmProjects//wireguard//config:/config
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv4.ip_forward=1
+    restart: unless-stopped
+
