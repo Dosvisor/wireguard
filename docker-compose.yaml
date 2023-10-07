@@ -22,3 +22,24 @@ services:
       - net.ipv4.ip_forward=1
     restart: unless-stopped
 
+  wireguard_r:
+    image: lscr.io/linuxserver/wireguard:latest
+    privileged: true
+    container_name: wireguard_m
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - LOG_CONFS=true
+    volumes:
+      #      - C://Users//username//PycharmProjects//wireguard//config:/config #windows
+      - /home/noadmin/projects/wireguard/config/riazan:/config #linix
+      #ports:
+      #- 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv4.ip_forward=1
+    restart: unless-stopped
