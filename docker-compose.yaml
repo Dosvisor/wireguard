@@ -13,7 +13,8 @@ services:
       - TZ=Etc/UTC
       - LOG_CONFS=true
     volumes:
-      - C://Users//noadmin//PycharmProjects//wireguard//config:/config
+#      - C://Users//username//PycharmProjects//wireguard//config:/config #windows
+      - /home/username/wireguard/config:/config #linix
     ports:
       - 51820:51820/udp
     sysctls:
