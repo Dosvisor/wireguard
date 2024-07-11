@@ -8,6 +8,8 @@ check_ping() {
 
 if check_ping; then
     echo "Ping to $IP_TO_PING successful from wireguard container."
+    exit 0
   else
     echo "Ping to $IP_TO_PING failed. Starting WireGuard service for wireguard."
+    exit 1
 fi
